@@ -42,12 +42,12 @@ const Header = () => {
   }, []);
 
   return (
-    <div className={classes.root}>
-      <AppBar position={"fixed"} className={classes.appBar} elevation={0}>
+    <div className={classes.root} id="deroute">
+      <AppBar position="absolute" className={classes.appBar} elevation={0}>
         <Toolbar className={classes.toolBar}>
           <Grid container justify="space-between" alignItems="center">
             <Grid item>
-              <h3>
+              <h3 id="deroute-logo-title">
                 De<span className={classes.title2}>Route.</span>
               </h3>
             </Grid>
@@ -63,7 +63,7 @@ const Header = () => {
       <Collapse in={landingCollapse} {...(landingCollapse ? { timeout: 1000 } : {})}>
         <div className={classes.landingText}>
           <div>
-            <h3>
+            <h3 id="deroute-title">
               {"Welcome to "}
               <span className={classes.landingTextTitle}>
                 De<span className={classes.title2}>Route</span>!
