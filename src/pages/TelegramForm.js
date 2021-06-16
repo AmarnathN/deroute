@@ -17,7 +17,7 @@ import { MyControls } from "../components/controls/MyControls";
 import Image from "../assets/telegram.jpeg";
 
 const intialFieldValues = {
-  username: "vayuteja",
+  username: "",
   message: "",
 };
 
@@ -59,7 +59,7 @@ const TelegramForm = (props) => {
 
   return (
     <Paper style={{ background: "none" }}>
-      <Card>
+      <Card style={{ background: "rgba(0, 0, 0, 0.1)" }}>
         <CardMedia className={classes.media} image={Image} title="WhatsApp Image"></CardMedia>
         <Paper>
           <CardContent style={{ background: "rgba(26, 174, 237, 0.1)" }}>
@@ -74,7 +74,7 @@ const TelegramForm = (props) => {
             </Typography>
           </CardContent>
         </Paper>
-        <Paper elevation={4} display="flex">
+        <Paper elevation={4} display="flex" style={{ background: "rgba(0, 0, 0, 0.1)" }}>
           <MyControls.Form onSubmit={handleSubmit}>
             <Grid container justify={"space-between"} alignContent={"center"}>
               <Grid item md={12} sm={12} xs={12}>

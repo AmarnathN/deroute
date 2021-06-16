@@ -17,8 +17,8 @@ import { MyControls } from "../components/controls/MyControls";
 import Image from "../assets/whatsapp.webp";
 
 const intialFieldValues = {
-  countryCode: "+91",
-  mobile: "9731415162",
+  countryCode: "",
+  mobile: "",
   message: "",
 };
 
@@ -71,7 +71,7 @@ const WhatsAppForm = (props) => {
 
   return (
     <Paper className={classes.root}>
-      <Card>
+      <Card style={{ background: "rgba(0, 0, 0, 0.1)" }}>
         <CardMedia className={classes.media} image={Image} title="WhatsApp Image"></CardMedia>
         <Paper>
           <CardContent style={{ background: "rgba(90, 255, 61, 0.1)" }}>
@@ -86,31 +86,33 @@ const WhatsAppForm = (props) => {
             </Typography>
           </CardContent>
         </Paper>
-        <MyControls.Form onSubmit={handleSubmit}>
-          <Grid container justify={"space-between"} alignContent={"center"}>
-            <Grid item md={2} sm={12} xs={12}>
-              <MyControls.Input
-                label="Country Code"
-                name="countryCode"
-                value={values.countryCode}
-                onChange={handleInputChange}
-                errorText={errors.countryCode}
-              />
+        <Paper elevation={4} display="flex" style={{ background: "rgba(0, 0, 0, 0.1)" }}>
+          <MyControls.Form onSubmit={handleSubmit}>
+            <Grid container justify={"space-between"} alignContent={"center"}>
+              <Grid item md={2} sm={12} xs={12}>
+                <MyControls.Input
+                  label="Country Code"
+                  name="countryCode"
+                  value={values.countryCode}
+                  onChange={handleInputChange}
+                  errorText={errors.countryCode}
+                />
+              </Grid>
+              <Grid item md={10} sm={12} xs={12}>
+                <MyControls.Input
+                  label="Mobile Number"
+                  value={values.mobile}
+                  onChange={handleInputChange}
+                  name="mobile"
+                  errorText={errors.mobile}
+                />
+              </Grid>
+              <Grid item md={12} sm={12} xs={12}>
+                <MyControls.Input label="Message" value={values.message} onChange={handleInputChange} name="message" />
+              </Grid>
             </Grid>
-            <Grid item md={10} sm={12} xs={12}>
-              <MyControls.Input
-                label="Mobile Number"
-                value={values.mobile}
-                onChange={handleInputChange}
-                name="mobile"
-                errorText={errors.mobile}
-              />
-            </Grid>
-            <Grid item md={12} sm={12} xs={12}>
-              <MyControls.Input label="Message" value={values.message} onChange={handleInputChange} name="message" />
-            </Grid>
-          </Grid>
-        </MyControls.Form>
+          </MyControls.Form>
+        </Paper>
       </Card>
       <Box justifyContent={"center"} display="flex">
         <Link href={`https://wa.me/${values.countryCode}${values.mobile}?text=${values.message}`}>

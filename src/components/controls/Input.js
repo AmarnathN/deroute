@@ -5,6 +5,20 @@ const useStyles = makeStyles((theme) => ({
   root: {
     margin: theme.spacing(0.5),
     fontFamily: "Concert One",
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: theme.palette.secondary.main,
+      },
+      "& fieldset legend span": {
+        color: theme.palette.secondary.main,
+      },
+    },
+    "& .MuiOutlinedInput-input": {
+      color: theme.palette.secondary.main,
+    },
+    "& .MuiInputLabel-outlined": {
+      color: theme.palette.secondary.main,
+    },
   },
 }));
 const Input = (props) => {
