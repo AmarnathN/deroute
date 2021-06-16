@@ -4,6 +4,7 @@ import React from "react";
 const useStyles = makeStyles((theme) => ({
   root: {
     margin: theme.spacing(0.5),
+    fontFamily: "Concert One",
   },
   label: {
     textTransform: "none",

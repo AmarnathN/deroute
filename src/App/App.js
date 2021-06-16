@@ -5,23 +5,20 @@ import "./App.css";
 
 import Image from "../assets/route.jpeg";
 import Header from "../components/Header";
+import Redirector from "../components/Redirector";
 
 const theme = createMuiTheme({
   palette: {
     secondary: {
-      main: "#ff6200",
-      light: "#f57b2f",
+      main: "#ffffff",
     },
     theme: {
       main: "#5aFF3D",
-      light: "#a7d4d0",
     },
     primary: {
-      main: "#00e0ce",
-      light: "#82d1cb",
+      main: "#5aFF3D",
     },
     background: {
-      // default: "#f2f2f2",
       default: "#e2e2e2",
       light: "#a8a8a8",
       dark: "#00000",
@@ -62,6 +59,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <div className={classes.appMain}>
           <Header />
+          <Redirector></Redirector>
         </div>
         <CssBaseline></CssBaseline>
       </ThemeProvider>
