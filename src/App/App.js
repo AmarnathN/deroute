@@ -1,10 +1,10 @@
 import { createMuiTheme, CssBaseline, makeStyles, ThemeProvider } from "@material-ui/core";
 
 import React from "react";
-import Header from "../components/Header";
-import Sidemenu from "../components/Sidemenu";
-import Employees from "../pages/employee/Employees";
 import "./App.css";
+
+import Image from "../assets/route.jpeg";
+import Header from "../components/Header";
 
 const theme = createMuiTheme({
   palette: {
@@ -47,6 +47,10 @@ const theme = createMuiTheme({
 const useStyles = makeStyles((theme) => ({
   appMain: {
     width: "100%",
+    minHeight: "100vh",
+    backgroundImage: `url(${Image})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
     backgroundColor: theme.palette.background.dark,
   },
 }));
@@ -56,10 +60,8 @@ function App() {
   return (
     <React.Fragment>
       <ThemeProvider theme={theme}>
-        {/* <Sidemenu /> */}
         <div className={classes.appMain}>
-          <Header></Header>
-          <Employees />
+          <Header />
         </div>
         <CssBaseline></CssBaseline>
       </ThemeProvider>
