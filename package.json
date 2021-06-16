@@ -2,7 +2,7 @@
   "name": "material-ui-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://AmarnathN.github.io/material-ui-react",
+  "homepage": "https://deroute.vayuteja.co.in",
   "dependencies": {
     "@date-io/moment": "^1.3.13",
     "@material-ui/core": "^4.11.4",
