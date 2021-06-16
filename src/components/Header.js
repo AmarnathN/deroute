@@ -7,10 +7,14 @@ const useStyles = makeStyles((theme) => ({
     background: "none",
     color: "white",
     fontSize: "2rem",
+    fontFamily: "Concert One",
   },
   toolBar: {
     width: "80%",
     margin: "0 auto",
+  },
+  title2: {
+    color: "#5aFF3D",
   },
 }));
 
@@ -21,9 +25,9 @@ const Header = () => {
       <Toolbar className={classes.toolBar}>
         <Grid container justify="space-between" alignItems="center">
           <Grid item>
-            <Typography variant={"h3"} component={"div"}>
-              <strong>Deroute</strong>
-            </Typography>
+            <h3>
+              De<span className={classes.title2}>Route.</span>
+            </h3>
           </Grid>
           <Grid item sm></Grid>
           <Grid item>
