@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "0 auto",
   },
   title2: {
-    color: "#5aFF3D",
+    color: theme.palette.theme.main,
   },
   landingText: {
     textAlign: "center",
