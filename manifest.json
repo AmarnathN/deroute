@@ -1,9 +1,17 @@
 {
   "short_name": "DeRoute",
-  "name": "DeRoute PWA",
+  "name": "DeRoute App PWA",
   "icons": [
-    { "src": "./logo2.png", "type": "image/png", "size": "1024*1024" },
-    { "src": "./logo2-144-144.png", "type": "image/png", "size": "144*144" }
+    {
+      "src": "./logo2.png",
+      "type": "image/png",
+      "sizes": "1024x1024"
+    },
+    {
+      "src": "./logo2-144-144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    }
   ],
   "start_url": ".",
   "display": "standalone",
