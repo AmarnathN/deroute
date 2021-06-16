@@ -26,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
   landingText: {
     textAlign: "center",
     color: "white",
+    fontSize: "1.5rem",
+  },
+  landingTextTitle: {
+    fontSize: "3rem",
   },
 }));
 
@@ -51,9 +55,19 @@ const Header = () => {
         </Toolbar>
       </AppBar>
       <div className={classes.landingText}>
-        <h1>
-          Welcome to <br /> De<span className={classes.title2}>Route !</span>
-        </h1>
+        <div>
+          <h3>
+            {"Welcome to "}
+            <span className={classes.landingTextTitle}>
+              De<span className={classes.title2}>Route</span>!
+            </span>
+          </h3>
+          <p>An instant way to start a chat in Messaging Apps</p>
+        </div>
+
+        <IconButton>
+          <ExpandMoreIcon className={classes.title2} />
+        </IconButton>
       </div>
     </div>
   );
