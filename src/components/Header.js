@@ -43,7 +43,7 @@ const Header = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar className={classes.appBar} elevation={0}>
+      <AppBar position={"fixed"} className={classes.appBar} elevation={0}>
         <Toolbar className={classes.toolBar}>
           <Grid container justify="space-between" alignItems="center">
             <Grid item>
