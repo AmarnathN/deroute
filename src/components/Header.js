@@ -1,64 +1,83 @@
-import { AppBar, Badge, Grid, IconButton, InputBase, makeStyles, Toolbar } from "@material-ui/core";
-import {
-  ChatBubble as ChatBubbleIcon,
-  NotificationsNone as NotificationsNoneIcon,
-  ExitToApp as ExitToAppIcon,
-  Search,
-} from "@material-ui/icons";
+import { AppBar, Badge, Collapse, Grid, IconButton, InputBase, makeStyles, Toolbar, Typography } from "@material-ui/core";
+import { Search, Sort as SortIcon, ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
 import React from "react";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: theme.palette.theme.main,
-    transform: "translateZ(-19.7rem)",
-    background: `linear-gradient(165deg,white 75%,${theme.palette.theme.main}  95%)`,
-    boxShadow: `0 3px 5px 2px rgba(0, 224, 206, .3)`,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+    fontFamily: "Concert One",
   },
-  searchInput: {
-    opacity: 0.6,
-    padding: `0px ${theme.spacing(1)}px`,
-    fontSize: "0.8rem",
-    border: "1px solid #000",
-    color: "text.primary",
-    backgroundColor: theme.palette.background.light,
-    "&:hover": {
-      backgroundColor: theme.palette.background.light,
-    },
-    "& .MuiSvgIcon-root": {
-      paddingRight: theme.spacing(1),
-    },
-    borderRadius: "6px",
+  appBar: {
+    background: "none",
+    fontSize: "2rem",
+    color: "white",
+    fontFamily: "Concert One",
+  },
+  toolBar: {
+    width: "80%",
+    margin: "0 auto",
+  },
+  title2: {
+    color: theme.palette.theme.main,
+  },
+  landingText: {
+    textAlign: "center",
+    color: "white",
+    fontSize: "1.5rem",
+  },
+  landingTextTitle: {
+    fontSize: "3rem",
   },
 }));
 
 const Header = () => {
   const classes = useStyles();
+  const [landingCollapse, setLandingCollapse] = React.useState(false);
+
+  React.useEffect(() => {
+    setLandingCollapse(true);
+  }, []);
+
   return (
-    <AppBar position="static" className={classes.root}>
-      <Toolbar>
-        <Grid container alignItems={"center"}>
-          <Grid item>
-            <InputBase className={classes.searchInput} placeholder={"search topics..."} startAdornment={<Search />}></InputBase>
+    <div className={classes.root}>
+      <AppBar className={classes.appBar} elevation={0}>
+        <Toolbar className={classes.toolBar}>
+          <Grid container justify="space-between" alignItems="center">
+            <Grid item>
+              <h3>
+                De<span className={classes.title2}>Route.</span>
+              </h3>
+            </Grid>
+            <Grid item sm></Grid>
+            <Grid item>
+              <IconButton color="inherit">
+                <SortIcon />
+              </IconButton>
+            </Grid>
           </Grid>
-          <Grid item sm></Grid>
-          <Grid item>
-            <IconButton color="inherit">
-              <Badge badgeContent={3} color={"secondary"}>
-                <NotificationsNoneIcon></NotificationsNoneIcon>
-              </Badge>
-            </IconButton>
-            <IconButton color="inherit">
-              <Badge badgeContent={2} color={"secondary"}>
-                <ChatBubbleIcon></ChatBubbleIcon>
-              </Badge>
-            </IconButton>
-            <IconButton color="inherit">
-              <ExitToAppIcon></ExitToAppIcon>
-            </IconButton>
-          </Grid>
-        </Grid>
-      </Toolbar>
-    </AppBar>
+        </Toolbar>
+      </AppBar>
+      <Collapse in={landingCollapse} {...(landingCollapse ? { timeout: 1000 } : {})}>
+        <div className={classes.landingText}>
+          <div>
+            <h3>
+              {"Welcome to "}
+              <span className={classes.landingTextTitle}>
+                De<span className={classes.title2}>Route</span>!
+              </span>
+            </h3>
+            <p>An instant way to start a chat in Messaging Apps</p>
+          </div>
+
+          <IconButton>
+            <ExpandMoreIcon className={classes.title2} />
+          </IconButton>
+        </div>
+      </Collapse>
+    </div>
   );
 };
 
