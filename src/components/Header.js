@@ -1,4 +1,4 @@
-import { AppBar, Badge, Grid, IconButton, InputBase, makeStyles, Toolbar, Typography } from "@material-ui/core";
+import { AppBar, Badge, Collapse, Grid, IconButton, InputBase, makeStyles, Toolbar, Typography } from "@material-ui/core";
 import { Search, Sort as SortIcon, ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
 import React from "react";
 
@@ -35,6 +35,12 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = () => {
   const classes = useStyles();
+  const [landingCollapse, setLandingCollapse] = React.useState(false);
+
+  React.useEffect(() => {
+    setLandingCollapse(true);
+  }, []);
+
   return (
     <div className={classes.root}>
       <AppBar className={classes.appBar} elevation={0}>
@@ -54,21 +60,23 @@ const Header = () => {
           </Grid>
         </Toolbar>
       </AppBar>
-      <div className={classes.landingText}>
-        <div>
-          <h3>
-            {"Welcome to "}
-            <span className={classes.landingTextTitle}>
-              De<span className={classes.title2}>Route</span>!
-            </span>
-          </h3>
-          <p>An instant way to start a chat in Messaging Apps</p>
-        </div>
+      <Collapse in={landingCollapse} {...(landingCollapse ? { timeout: 1000 } : {})}>
+        <div className={classes.landingText}>
+          <div>
+            <h3>
+              {"Welcome to "}
+              <span className={classes.landingTextTitle}>
+                De<span className={classes.title2}>Route</span>!
+              </span>
+            </h3>
+            <p>An instant way to start a chat in Messaging Apps</p>
+          </div>
 
-        <IconButton>
-          <ExpandMoreIcon className={classes.title2} />
-        </IconButton>
-      </div>
+          <IconButton>
+            <ExpandMoreIcon className={classes.title2} />
+          </IconButton>
+        </div>
+      </Collapse>
     </div>
   );
 };
